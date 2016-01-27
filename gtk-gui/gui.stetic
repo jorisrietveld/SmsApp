@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/SmsApp.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="450 300">
+    <action-group name="Default">
+      <action id="smsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">sms</property>
+        <property name="ShortLabel" translatable="yes">sms</property>
+      </action>
+      <action id="smsVerstuurenAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">sms verstuuren</property>
+        <property name="ShortLabel" translatable="yes">sms verstuuren</property>
+        <signal name="Activated" handler="OpenSendMessageWindow" />
+      </action>
+      <action id="smsOverzichtAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">sms overzicht</property>
+        <property name="ShortLabel" translatable="yes">sms overzicht</property>
+        <signal name="Activated" handler="OpenSmsOverviewWindow" />
+      </action>
+      <action id="contactAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">contact</property>
+        <property name="ShortLabel" translatable="yes">contact</property>
+      </action>
+      <action id="contactToevoegenAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">contact toevoegen</property>
+        <property name="ShortLabel" translatable="yes">contact toevoegen</property>
+        <signal name="Activated" handler="OpenAddContactWindow" />
+      </action>
+      <action id="contactVerwijderenAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">contact verwijderen</property>
+        <property name="ShortLabel" translatable="yes">contact verwijderen</property>
+        <signal name="Activated" handler="OpenRemoveContactWindow" />
+      </action>
+      <action id="contactOverzichtAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">contact overzicht</property>
+        <property name="ShortLabel" translatable="yes">contact overzicht</property>
+        <signal name="Activated" handler="OpenContactOverviewWindow" />
+      </action>
+      <action id="HelpAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Help</property>
+        <property name="ShortLabel" translatable="yes">Help</property>
+      </action>
+      <action id="OverSmsAppAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Over SmsApp</property>
+        <property name="ShortLabel" translatable="yes">Over SmsApp</property>
+        <signal name="Activated" handler="OpenAboutWindow" />
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">Sms App</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VBox" id="vbox2">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.MenuBar" id="menubar3">
+            <property name="MemberName" />
+            <node name="__gtksharp_110_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="smsAction">
+                <node type="Menuitem" action="smsVerstuurenAction" />
+                <node type="Menuitem" action="smsOverzichtAction" />
+              </node>
+              <node type="Menu" action="contactAction">
+                <node type="Menuitem" action="contactToevoegenAction" />
+                <node type="Menuitem" action="contactVerwijderenAction" />
+                <node type="Menuitem" action="contactOverzichtAction" />
+              </node>
+              <node type="Menu" action="HelpAction">
+                <node type="Menuitem" action="OverSmsAppAction" />
+              </node>
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TextView" id="LogTextView">
+                <property name="MemberName">LogTextView</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <property name="Text" translatable="yes" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
