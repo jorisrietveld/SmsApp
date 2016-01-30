@@ -1,11 +1,14 @@
 ﻿using System;
 using Gtk;
+using SmsApp;
+using SmsApp.Dao;
+using SmsApp.Controller;
 
 public partial class MainWindow: Gtk.Window
 {
 	public MainWindow () : base (Gtk.WindowType.Toplevel)
 	{
-		Build ();
+			Build ();
 	}
 
 	/**
@@ -22,17 +25,24 @@ public partial class MainWindow: Gtk.Window
 	 */
 	protected void OpenSendMessageWindow (object sender, EventArgs e)
 	{
-		LogTextView.Buffer.Text = "Stuur een nieuw sms bericht";
+		SendSmsWindow window = new SendSmsWindow ();
+		window.Show ();
+		//LogTextView.Buffer.Text = "Stuur een nieuw sms bericht";
 	}
-
 	/**
 	 * This is the handler for the MainMenu->sms->SmsOverview button.
 	 */
 	protected void OpenSmsOverviewWindow (object sender, EventArgs e)
 	{
-		LogTextView.Buffer.Text = "Verzonden sms berichten";
+		try{
+			MessageController controller = new MessageController ();
+			LogTextView.Buffer.Text = controller.testQuery ();
+		}
+		catch( Exception exception ) 
+		{
+			this.showErrorDialog ( exception );
+		}
 	}
-
 	/**
 	 * This is the handler for the MainMenu>Contact>AddContact button.
 	 */
@@ -40,7 +50,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		LogTextView.Buffer.Text = "Een contact toevoegen";
 	}
-
 	/**
 	 * This is the handler for the MainMenu>Contact>RemoveContact button.
 	 */
@@ -48,7 +57,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		LogTextView.Buffer.Text = "Een contact verwijderen";
 	}
-
 	/**
 	 * This is the handler for the MainMenu>Contact>ContactOverview button.
 	 */
@@ -56,7 +64,6 @@ public partial class MainWindow: Gtk.Window
 	{
 		LogTextView.Buffer.Text = "Contact overzicht";
 	}
-
 	/**
 	 * This is the handler for opening the MainMenu>Help>About button.
 	 */
@@ -67,5 +74,28 @@ public partial class MainWindow: Gtk.Window
 		about.Version = " Version: 0.1";
 		about.Run ();
 		about.Destroy ();
+	}
+
+	protected void showErrorDialog( MessageType typeOfMessage, ButtonsType typeOfButtons, string errorMessage )
+	{
+		MessageDialog errorDialog = new MessageDialog ( null, DialogFlags.Modal, typeOfMessage, typeOfButtons, errorMessage);
+		errorDialog.Run ();
+		errorDialog.Destroy ();
+	}
+	protected void showErrorDialog( string errorMessage )
+	{
+		MessageDialog errorDialog = new MessageDialog( this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, errorMessage);
+		errorDialog.Run ();
+		errorDialog.Destroy ();
+	}
+	protected void showErrorDialog( Exception exception )
+	{
+		string errorMessage = "An exception has been thrown!\n" +
+		                      "[Message]\n " + exception.Message + "\n" +
+			"[Strack trace] \n" + exception.StackTrace;
+
+		MessageDialog errorDialog = new MessageDialog( this, DialogFlags.Modal, MessageType.Error, ButtonsType.Close, false, errorMessage);
+		errorDialog.Run ();
+		errorDialog.Destroy ();
 	}
 }

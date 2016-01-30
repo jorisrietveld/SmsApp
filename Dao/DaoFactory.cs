@@ -2,6 +2,7 @@
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using SmsApp.Dao.Entity;
+using SmsApp.Dao.Repository;
 
 namespace SmsApp.Dao
 {
@@ -10,21 +11,17 @@ namespace SmsApp.Dao
 		public static readonly int MySql = 1;
 		public static readonly int SQLite = 2;
 
-		public DaoFactory ()
-		{
-		}
+		public abstract MessagesRepository getMessagesRepository();
 
-		public DaoFactory getDao( int witchDao )
+		public static DaoFactory getDao( int witchDao )
 		{
 			switch (witchDao) {
 
 			case 1:
 				return new MysqlDaoFactory ();
-				break;
 
 			default:
 				return null;
-				break;
 			
 			}
 		}

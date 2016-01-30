@@ -4,25 +4,29 @@ namespace SmsApp.Dao.Entity
 {
 	public class Message
 	{
-		private long id;
+		private UInt32 id;
 		private string numberReceiver;
 		private string messageBody;
 		private DateTime sendAt;
 
-		public Message ( long id, string numberReceiver, string messageBody, DateTime sendAt )
+		public Message ( UInt32 id, string numberReceiver, string messageBody, DateTime sendAt )
 		{
+			this.setId (id);
+			this.setNumberReceiver (numberReceiver);
+			this.setMessageBody (messageBody);
+			this.setSendAt (sendAt);
 		}
 
 		public Message()
 		{
 		}
 
-		public void setId( long id )
+		public void setId( UInt32 id )
 		{
 			this.id = id;
 		}
 
-		public long getId()
+		public UInt32 getId()
 		{	
 			return this.id;
 		}
@@ -55,6 +59,15 @@ namespace SmsApp.Dao.Entity
 		public DateTime getSendAt( )
 		{
 			return this.sendAt;
+		}
+
+		public string toString()
+		{
+			string str = "Message{ id:" + this.id + ", " +
+				"numberReceiver:" + this.numberReceiver + ", " +
+				"messageBody: " + this.messageBody + ", " +
+				"sendAt: " + this.sendAt + " } ";
+			return str;
 		}
 	}
 }

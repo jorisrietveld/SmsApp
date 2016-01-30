@@ -6,12 +6,10 @@ namespace SmsApp.Dao.Repository
 {
 	public interface MessagesRepository
 	{
-		Message getMessageById( long id );
-
+		Message getMessageById( UInt32 id );
 		List<Message> getAllMessages( );
-
-		List<Message> getMessagesByUserId (long userId);
-
+		List<Message> getMessagesByContactId ( UInt32 userId);
+		List<Message> getMessagesByNumberReceiver( string numberReceiver );
 	}
 }
 
