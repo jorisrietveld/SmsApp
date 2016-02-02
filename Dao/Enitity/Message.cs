@@ -8,18 +8,19 @@ namespace SmsApp.Dao.Entity
 		private string numberReceiver;
 		private string messageBody;
 		private DateTime sendAt;
+		private UInt32 contactId;
 
-		public Message ( UInt32 id, string numberReceiver, string messageBody, DateTime sendAt )
+		public Message ( UInt32 id, string numberReceiver, string messageBody, DateTime sendAt, UInt32 contactId )
 		{
 			this.setId (id);
 			this.setNumberReceiver (numberReceiver);
 			this.setMessageBody (messageBody);
 			this.setSendAt (sendAt);
+			this.setContactId (contactId);
 		}
 
 		public Message()
-		{
-		}
+		{}
 
 		public void setId( UInt32 id )
 		{
@@ -61,12 +62,22 @@ namespace SmsApp.Dao.Entity
 			return this.sendAt;
 		}
 
+		public void setContactId( UInt32 contactId)
+		{
+			this.contactId = contactId;
+		}
+
+		public UInt32 getContactId()
+		{
+			return this.contactId;
+		}
+
 		public string toString()
 		{
-			string str = "Message{ id:" + this.id + ", " +
-				"numberReceiver:" + this.numberReceiver + ", " +
-				"messageBody: " + this.messageBody + ", " +
-				"sendAt: " + this.sendAt + " } ";
+			string str = "Message{ \n\tid: " + this.id + ",\n" +
+				"\tnumberReceiver: " + this.numberReceiver + ",\n" +
+				"\tmessageBody: " + this.messageBody + ",\n" +
+				"\tsendAt: " + this.sendAt + " \n}\n";
 			return str;
 		}
 	}

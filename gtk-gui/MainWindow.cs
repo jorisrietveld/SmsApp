@@ -69,6 +69,8 @@ public partial class MainWindow
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("Sms App");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
+		this.DefaultWidth = 800;
+		this.DefaultHeight = 400;
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox2 = new global::Gtk.VBox ();
 		this.vbox2.Name = "vbox2";
@@ -98,8 +100,6 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 450;
-		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.smsVerstuurenAction.Activated += new global::System.EventHandler (this.OpenSendMessageWindow);

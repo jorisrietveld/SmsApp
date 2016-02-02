@@ -81,6 +81,7 @@
     <Compile Include="Dao\Repository\MessagesRepository.cs" />
     <Compile Include="Dao\MysqlDaoFactory.cs" />
     <Compile Include="Controller\MessageController.cs" />
+    <Compile Include="tests\testMessagesDao.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -88,6 +89,7 @@
     <Folder Include="Dao\Enitity\" />
     <Folder Include="Dao\Repository\" />
     <Folder Include="Controller\" />
+    <Folder Include="tests\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
