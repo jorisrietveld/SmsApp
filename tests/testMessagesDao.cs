@@ -1,5 +1,6 @@
 ﻿using System;
 
+using SmsApp.Dao;
 using SmsApp.Dao.Entity;
 using SmsApp.Dao.Repository;
 
@@ -7,9 +8,11 @@ namespace SmsApp.tests
 {
 	public class testMessagesDao
 	{
+		private MessagesRepository messageRepo = null;
+
 		public testMessagesDao ()
 		{
-
+			this.messageRepo =  new 
 		}
 
 		public void saveMessage( string numberReceiver, string message )
