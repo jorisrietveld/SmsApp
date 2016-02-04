@@ -70,12 +70,14 @@ namespace SmsApp
 			w3.Fill = false;
 			this.vbox3.Add (this.hbox2);
 			global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.hbox2]));
-			w4.Position = 2;
+			w4.Position = 1;
 			w4.Expand = false;
 			w4.Fill = false;
 			this.vbox1.Add (this.vbox3);
 			global::Gtk.Box.BoxChild w5 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.vbox3]));
 			w5.Position = 0;
+			w5.Expand = false;
+			w5.Fill = false;
 			// Container child vbox1.Gtk.Box+BoxChild
 			this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
 			this.GtkScrolledWindow.Name = "GtkScrolledWindow";

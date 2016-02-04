@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using SmsApp.Dao;
 using SmsApp.Dao.Repository;
 using SmsApp.Dao.Entity;
+using SmsApp.Model;
 
 namespace SmsApp.Controller
 {
@@ -16,11 +17,11 @@ namespace SmsApp.Controller
 			this.messageRepo = DaoFactory.getDao( DaoFactory.MySql ).getMessagesRepository();
 		}
 
-		public List<Message> getAllSendMessages()
+		public void sendMessage( Message message )
 		{
-			return messageRepo.getAllMessages ();
+			this.messageRepo.insertMessege (message);
+
 		}
-			
 	}
 }
 

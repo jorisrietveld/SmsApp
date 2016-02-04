@@ -60,6 +60,9 @@
       <HintPath>..\packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -87,6 +90,9 @@
     <Compile Include="gtk-gui\SmsApp.ContactController.cs" />
     <Compile Include="Controller\ContactController.cs" />
     <Compile Include="view\SendMessagesOverviewWindow.cs" />
+    <Compile Include="view\ContactView.cs" />
+    <Compile Include="Model\SmsApiCall.cs" />
+    <Compile Include="Model\ViaNetApiCall.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -96,6 +102,7 @@
     <Folder Include="Controller\" />
     <Folder Include="tests\" />
     <Folder Include="view\" />
+    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
