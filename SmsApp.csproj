@@ -82,6 +82,11 @@
     <Compile Include="Dao\MysqlDaoFactory.cs" />
     <Compile Include="Controller\MessageController.cs" />
     <Compile Include="tests\testMessagesDao.cs" />
+    <Compile Include="Dao\Repository\ContactRepository.cs" />
+    <Compile Include="Dao\Repository\MysqlContactRepository.cs" />
+    <Compile Include="gtk-gui\SmsApp.ContactController.cs" />
+    <Compile Include="Controller\ContactController.cs" />
+    <Compile Include="view\SendMessagesOverviewWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -90,6 +95,7 @@
     <Folder Include="Dao\Repository\" />
     <Folder Include="Controller\" />
     <Folder Include="tests\" />
+    <Folder Include="view\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

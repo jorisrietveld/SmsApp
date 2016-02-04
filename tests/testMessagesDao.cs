@@ -8,27 +8,19 @@ namespace SmsApp.tests
 {
 	public class testMessagesDao
 	{
-		private MessagesRepository messageRepo = null;
+		MessagesRepository messageRepo = null;
 
-		public testMessagesDao ()
+		public testMessagesDao(int testNumber)
 		{
-			this.messageRepo =  new 
-		}
+			this.messageRepo = DaoFactory.getDao (DaoFactory.MySql).getMessagesRepository ();
 
-		public void saveMessage( string numberReceiver, string message )
-		{
-			DaoFactory factory = DaoFactory.getDao ( DaoFactory.MySql );
-		}
+			switch( testNumber )
+			{
+			case 0:
 
-		public string testQuery()
-		{
-			MessagesRepository repo = DaoFactory.getDao (DaoFactory.MySql).getMessagesRepository ();
-			List<Message> messageList = repo.getAllMessages ();
-			Message message = messageList [0];
-			return message.toString();
+				break;
+			}
 		}
-
-		public string testMessageRepository
 	}
 }
 

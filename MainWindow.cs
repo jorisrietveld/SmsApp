@@ -3,6 +3,7 @@ using Gtk;
 using SmsApp;
 using SmsApp.Dao;
 using SmsApp.Controller;
+using SmsApp.view;
 
 public partial class MainWindow: Gtk.Window
 {
@@ -34,14 +35,7 @@ public partial class MainWindow: Gtk.Window
 	 */
 	protected void OpenSmsOverviewWindow (object sender, EventArgs e)
 	{
-		try{
-			MessageController controller = new MessageController ();
-			LogTextView.Buffer.Text = controller.testQuery ();
-		}
-		catch( Exception exception ) 
-		{
-			this.showErrorDialog ( exception );
-		}
+		SendMessagesOverviewWindow sendMessagesOverviewWindow = new SendMessagesOverviewWindow ();
 	}
 	/**
 	 * This is the handler for the MainMenu>Contact>AddContact button.

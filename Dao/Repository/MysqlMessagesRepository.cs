@@ -156,7 +156,7 @@ namespace SmsApp.Dao.Repository
 			statement.Parameters.AddWithValue ("sendAt", Convert.ToString (message.getSendAt ()));
 			statement.Parameters.AddWithValue ("contactId", message.getContactId ());
 
-			if ( statement.ExecuteNonQuery () > 0 ){
+			if ( statement.ExecuteNonQuery () == 0 ){
 				throw new ApplicationException ();
 			}
 		}

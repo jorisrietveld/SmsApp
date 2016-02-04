@@ -20,6 +20,7 @@ namespace SmsApp.Dao
 		private void openDatabaseConnection()
 		{
 			this.databaseConnection.Open ();
+
 		}
 
 		public MySqlConnection getDatabaseConnection()
