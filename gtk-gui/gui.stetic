@@ -6,7 +6,7 @@
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
-    <widget-library name="../bin/Release/SmsApp.exe" internal="true" />
+    <widget-library name="../bin/Debug/SmsApp.exe" internal="true" />
   </import>
   <action-group name="SmsApp.ContactController" />
   <widget class="Gtk.Window" id="MainWindow" design-size="450 300">
@@ -119,7 +119,7 @@
       </widget>
     </child>
   </widget>
-  <widget class="Gtk.Window" id="SmsApp.SendSmsMessageWindow" design-size="400 300">
+  <widget class="Gtk.Window" id="SmsApp.view.SendSmsMessageWindow" design-size="400 300">
     <property name="MemberName" />
     <property name="Title" translatable="yes">SendSmsMessageWindow</property>
     <property name="WindowPosition">CenterOnParent</property>

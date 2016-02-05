@@ -76,7 +76,7 @@ public partial class MainWindow
 		this.vbox2.Name = "vbox2";
 		this.vbox2.Spacing = 6;
 		// Container child vbox2.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar3'><menu name='smsAction' action='smsAction'><menuitem name='smsVerstuurenAction' action='smsVerstuurenAction'/><menuitem name='smsOverzichtAction' action='smsOverzichtAction'/></menu><menu name='contactAction' action='contactAction'><menuitem name='contactToevoegenAction' action='contactToevoegenAction'/><menuitem name='contactVerwijderenAction' action='contactVerwijderenAction'/><menuitem name='contactOverzichtAction' action='contactOverzichtAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='OverSmsAppAction' action='OverSmsAppAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString (@"<ui><menubar name='menubar3'><menu name='smsAction' action='smsAction'><menuitem name='smsVerstuurenAction' action='smsVerstuurenAction'/><menuitem name='smsOverzichtAction' action='smsOverzichtAction'/></menu><menu name='contactAction' action='contactAction'><menuitem name='contactToevoegenAction' action='contactToevoegenAction'/><menuitem name='contactVerwijderenAction' action='contactVerwijderenAction'/><menuitem name='contactOverzichtAction' action='contactOverzichtAction'/></menu><menu name='HelpAction' action='HelpAction'><menuitem name='OverSmsAppAction' action='OverSmsAppAction'/></menu></menubar></ui>");
 		this.menubar3 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar3")));
 		this.menubar3.Name = "menubar3";
 		this.vbox2.Add (this.menubar3);

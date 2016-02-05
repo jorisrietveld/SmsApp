@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmsApp
+namespace SmsApp.view
 {
 	public partial class SendSmsMessageWindow : Gtk.Window
 	{
