@@ -19,9 +19,19 @@ namespace SmsApp.Controller
 
 		public void sendMessage( Message message )
 		{
-			this.messageRepo.insertMessege (message);
+			ViaNetApiCall viaNetApiModel = new ViaNetApiCall ();
+			ViaNetApiCall.Result callResult;
+			callResult = viaNetApiModel.sendSMS ( message );
 
+			if (callResult.Success) {
+				// Message is send successfully
+				this.messageRepo.insertMessege ( message );
+			} else {
+				throw new ApplicationException ("[Code] " + callResult.ErrorCode + " [Message] " + callResult.ErrorMessage);
+			}
 		}
+
+
 	}
 }
 

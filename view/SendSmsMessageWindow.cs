@@ -2,9 +2,9 @@
 
 namespace SmsApp
 {
-	public partial class SendSmsWindow : Gtk.Window
+	public partial class SendSmsMessageWindow : Gtk.Window
 	{
-		public SendSmsWindow () :
+		public SendSmsMessageWindow () :
 			base (Gtk.WindowType.Toplevel)
 		{
 			this.Build ();

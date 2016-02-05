@@ -76,8 +76,6 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dao\DaoFactory.cs" />
-    <Compile Include="SendSmsWindow.cs" />
-    <Compile Include="gtk-gui\SmsApp.SendSmsWindow.cs" />
     <Compile Include="Dao\Enitity\Contact.cs" />
     <Compile Include="Dao\Enitity\Message.cs" />
     <Compile Include="Dao\Repository\MysqlMessagesRepository.cs" />
@@ -93,6 +91,8 @@
     <Compile Include="view\ContactView.cs" />
     <Compile Include="Model\SmsApiCall.cs" />
     <Compile Include="Model\ViaNetApiCall.cs" />
+    <Compile Include="view\SendSmsMessageWindow.cs" />
+    <Compile Include="gtk-gui\SmsApp.SendSmsMessageWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

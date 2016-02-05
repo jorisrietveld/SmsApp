@@ -1,25 +1,37 @@
 ﻿using System;
 using System.Web;
 using System.Net;
+using SmsApp.Dao.Entity;
 
 namespace SmsApp.Model
 {
 	public class ViaNetApiCall
 	{
-		private string username = "";
-		private string password = "";
+		private string username = "elroy_drenth@hotmail.com";
+		private string password = "r5bkk";
+		private string telephoneNumberSender = "0629300582";
 
 		public ViaNetApiCall ()
 		{
 		}
-
 		public ViaNetApiCall (string username, string password)
 		{
 			this.username = username;
 			this.password = password;
 		}
+		public ViaNetApiCall (string username, string password, string numberSender)
+		{
+			this.username = username;
+			this.password = password;
+			this.telephoneNumberSender = numberSender;
+		}
 
-		public Result sendSMS(string msgsender, string destinationaddr, string message)
+		public Result sendSMS( Message message )
+		{
+			return this.sendSMS (this.telephoneNumberSender, message.getNumberReceiver (), message.getMessageBody ());
+		}
+
+		public Result sendSMS(string sender, string numberReceiver, string message)
 		{
 			// Declarations
 			string url;
@@ -31,18 +43,18 @@ namespace SmsApp.Model
 			url = "http://smsc.vianett.no/ActiveServer/MT/?"
 				+ "username=" + HttpUtility.UrlEncode(username) 
 				+ "&password=" + HttpUtility.UrlEncode(password) 
-				+ "&destinationaddr=" + HttpUtility.UrlEncode(destinationaddr, System.Text.Encoding.GetEncoding("ISO-8859-1")) 
+				+ "&destinationaddr=" + HttpUtility.UrlEncode(numberReceiver, System.Text.Encoding.GetEncoding("ISO-8859-1")) 
 				+ "&message=" + HttpUtility.UrlEncode(message, System.Text.Encoding.GetEncoding("ISO-8859-1")) 
 				+ "&refno=1";
 
 			// Check if the message sender is numeric or alphanumeric.
-			if (long.TryParse(msgsender, out l))
+			if (long.TryParse(sender, out l))
 			{
-				url = url + "&sourceAddr=" + msgsender;
+				url = url + "&sourceAddr=" + sender;
 			}
 			else
 			{
-				url = url + "&fromAlpha=" + msgsender;
+				url = url + "&fromAlpha=" + sender;
 			}
 			// Send the SMS by submitting the URL request to the server. The response is saved as an XML string.
 			serverResult = DownloadString(url);
